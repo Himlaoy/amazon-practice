@@ -1,3 +1,4 @@
-.PPcart{
- margin: 50px auto;
+.card-Detail{
+    display: grid;
+    grid-template-columns: repeat(4 1f)r;
 }
