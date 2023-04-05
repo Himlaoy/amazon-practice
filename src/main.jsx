@@ -11,6 +11,7 @@ import Shop from './components/Shop/Shop';
 import Product from './components/Product/Product';
 import Home from './components/Home/Home';
 import Order from './components/Order/Order';
+import cardProductLoader from './loader/cardProductLoader';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       {
         path: 'order',
         element: <Order></Order>,
+        loader: cardProductLoader
       }
       
     ]

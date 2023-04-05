@@ -1,4 +1,12 @@
 .card-Detail{
     display: grid;
-    grid-template-columns: repeat(4 1f)r;
+    grid-template-columns: 4fr 1fr;
+}
+
+.product{
+    border: 2px solid goldenrod;
+}
+
+.cart-part{
+    width: 180px;
 }
