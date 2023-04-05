@@ -4,3 +4,11 @@
    position: sticky;
    top: 0px;
 }
+
+.btn-class{
+    background-color: coral ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+}
