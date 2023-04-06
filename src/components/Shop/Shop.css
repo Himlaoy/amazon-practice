@@ -17,3 +17,10 @@
 .cart-container{
     width: 160px;
 }
+
+.check{
+    font-size: 12px;
+    width: 150px;
+    margin-top: 3px;
+    background-color: darkolivegreen;
+}

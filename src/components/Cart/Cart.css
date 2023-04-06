@@ -1,12 +1,12 @@
-.cart{
+.cart {
     background-color: burlywood;
     padding: 10px;
-   position: sticky;
-   top: 0px;
+    position: sticky;
+    top: 0px;
 }
 
-.btn-class{
-    background-color: coral ;
+.btn-class {
+    background-color: coral;
     display: flex;
     justify-content: space-between;
     align-items: center;

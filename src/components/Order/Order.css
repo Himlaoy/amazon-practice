@@ -10,3 +10,11 @@
 .cart-part{
     width: 180px;
 }
+
+.review{
+    font-size: 12px;
+    width: 150px;
+    margin-top: 3px;
+    background-color: darkolivegreen;
+    
+}
