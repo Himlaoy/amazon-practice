@@ -17,3 +17,7 @@ nav.Header a{
 nav.Header a:hover{
     color: orange;
 }
+.text-white{
+    color: whitesmoke;
+    margin-left: 5px;
+}
