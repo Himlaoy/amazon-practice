@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateCurrentUser} from "firebase/auth"
 import app from '../../firebse.config';
+import { useLocation } from 'react-router-dom';
 
 export const AuthContext = createContext(null)
 
@@ -8,7 +9,15 @@ const auth = getAuth(app)
 
 const AuthProvider = ({children}) => {
 
+    // const location = useLocation()
+    // console.log(location)
+
+    const [loading, setLoading] = useState(true)
+    console.log(loading)
+
     const [user, setUser] = useState(null)
+    console.log(user)
+
 
     const createUser = (email, password)=>{
        return createUserWithEmailAndPassword(auth, email, password)
@@ -26,6 +35,7 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
        const unSubscribe = onAuthStateChanged(auth, CurrentUser=>{
             setUser(CurrentUser)
+            setLoading(false)
         })
 
         // stop observe
@@ -37,9 +47,11 @@ const AuthProvider = ({children}) => {
 
     const authInfo = {
         user,
+        loading,
         createUser,
         signIn,
-        logOut
+        logOut,
+        
     }
 
 

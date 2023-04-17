@@ -28,7 +28,7 @@ const Header = () => {
             <div>
                 <Link to="/shop">Shop</Link>
                 <Link to="/order">Order</Link>
-                <Link to="/inventory">Inventory</Link>
+                <Link to="/checkout">Check Out</Link>
                 <Link to="/signup">Signup</Link>
                 <Link to="/Login">LogIn</Link>
                 {

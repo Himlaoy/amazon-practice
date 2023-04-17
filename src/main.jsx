@@ -16,6 +16,7 @@ import Checkout from './components/Chekout/Checkout';
 import Longin from './components/Login/Longin';
 import SignIn from './components/Signin/SignIn';
 import AuthProvider from './components/Provider/AuthProvider';
+import PrivateRoutes from './components/Routes/PrivateRoutes';
 
 const router = createBrowserRouter([
   {
@@ -32,16 +33,16 @@ const router = createBrowserRouter([
       },
       {
         path: 'order',
-        element: <Order></Order>,
+        element: <PrivateRoutes><Order></Order></PrivateRoutes>,
         loader: cardProductLoader
       },
       {
         path: 'checkout',
-        element: <Checkout></Checkout>,
+        element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>
       },
       {
         path: '/login',
-        element: <Longin></Longin>
+        element: <Longin></Longin>,
       },
       {
         path: '/signup',

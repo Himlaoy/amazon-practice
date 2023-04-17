@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Longin = () => {
     const {signIn}  = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
 
     const handleLogIn=(event)=>{
         event.preventDefault()
@@ -18,6 +21,7 @@ const Longin = () => {
         .then(result=>{
             const loggedUser = result.user
             console.log(loggedUser)
+            navigate('/')
             
         })
         .catch(error=>{
