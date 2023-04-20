@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Longin = () => {
-    const {signIn}  = useContext(AuthContext)
+
+    const [show, setShow] = useState(false)
+
+    const { signIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     console.log(location)
 
-    const handleLogIn=(event)=>{
+    const from = location.state?.from?.pathname || '/'
+
+    const handleLogIn = (event) => {
         event.preventDefault()
 
         const form = event.target
@@ -18,16 +23,16 @@ const Longin = () => {
 
 
         signIn(email, password)
-        .then(result=>{
-            const loggedUser = result.user
-            console.log(loggedUser)
-            navigate('/')
-            
-        })
-        .catch(error=>{
-            console.log(error.message)
+            .then(result => {
+                const loggedUser = result.user
+                console.log(loggedUser)
+                navigate(from, { replace: true })
 
-        })
+            })
+            .catch(error => {
+                console.log(error.message)
+
+            })
 
 
     }
@@ -42,7 +47,13 @@ const Longin = () => {
                 </div>
                 <div className="form-control">
                     <label htmlFor="password">Password</label>
-                    <input type="password" className='' name="password" id="" required placeholder='Your password' />
+                    <input type={show? 'text': 'password'} className='' name="password" id="" required placeholder='Your password' />
+                    <p onClick={() => setShow(!show)}><small>
+                        {
+                            show ? <span>Hide password</span> : <span>Show password</span>
+
+                        }
+                    </small></p>
                 </div>
 
                 <input className='btn' type="submit" value="Login" />
